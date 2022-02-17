@@ -9,6 +9,3 @@ export default {
     components: { Nav }
 }
 </script>
-
-<style>
-</style>

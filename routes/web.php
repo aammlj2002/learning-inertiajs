@@ -18,6 +18,7 @@ Route::get('/', function () {
     return inertia('Home');
 });
 Route::get('/users', function () {
+    sleep(2);
     return inertia('Users');
 });
 Route::get('/settings', function () {

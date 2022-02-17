@@ -15,8 +15,11 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return inertia('Welcome',[
-        "name"=>"Aung Aung Myo Myat",
-        "frameworks"=>["laravel", "vue", "inertia"]
-    ]);
+    return inertia('Home');
+});
+Route::get('/users', function () {
+    return inertia('Users');
+});
+Route::get('/settings', function () {
+    return inertia('Settings');
 });

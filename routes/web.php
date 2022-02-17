@@ -18,8 +18,10 @@ Route::get('/', function () {
     return inertia('Home');
 });
 Route::get('/users', function () {
-    sleep(2);
-    return inertia('Users');
+    sleep(1);
+    return inertia('Users',[
+        "time"=>now()->toTimeString()
+    ]);
 });
 Route::get('/settings', function () {
     return inertia('Settings');

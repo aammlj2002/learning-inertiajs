@@ -1,13 +1,14 @@
 <template>
-    <Nav />
-    <h1>Home</h1>
+    <Layout>
+        <h1>Home</h1>
+    </Layout>
 </template>
 
 <script>
-import Nav from '../Shared/Nav'
+import Layout from '../Shared/Layout'
 export default {
     components: {
-        Nav
+        Layout
     }
 }
 </script>

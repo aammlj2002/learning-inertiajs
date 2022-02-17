@@ -2,13 +2,13 @@
     <nav>
         <ul>
             <li>
-                <Link href="/">Home</Link>
+                <NavLink href="/" :active="$page.component === 'Home'">Home</NavLink>
             </li>
             <li>
-                <Link href="/users">Users</Link>
+                <NavLink href="/users" :active="$page.component === 'Users'">Users</NavLink>
             </li>
             <li>
-                <Link href="/settings">Settings</Link>
+                <NavLink href="/settings" :active="$page.component === 'Settings'">Settings</NavLink>
             </li>
             <li>
                 <Link href="/logout" method="post" as="button" :data="{foo:'bar'}">Log out</Link>
@@ -18,11 +18,17 @@
 </template>
 
 <script>
+import NavLink from './NavLink'
 import { Link } from "@inertiajs/inertia-vue3"
 export default {
-    components: { Link }
+    components: {
+        NavLink, Link
+    }
 }
 </script>
 
 <style>
+.text-red {
+    color: red;
+}
 </style>

@@ -3,8 +3,11 @@
     <slot />
 </template>
 
-<script setup>
+<script>
 import Nav from './Nav'
+export default {
+    components: { Nav }
+}
 </script>
 
 <style>

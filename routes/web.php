@@ -15,7 +15,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return inertia('Home');
+    return inertia('Home', [
+        "username"=>"John Doe"
+    ]);
 });
 Route::get('/users', function () {
     sleep(1);

@@ -13,6 +13,7 @@
             <li>
                 <Link href="/logout" method="post" as="button" :data="{foo:'bar'}">Log out</Link>
             </li>
+            <li>{{username}}</li>
         </ul>
     </nav>
 </template>
@@ -23,6 +24,11 @@ import { Link } from "@inertiajs/inertia-vue3"
 export default {
     components: {
         NavLink, Link
+    },
+    computed: {
+        username() {
+            return this.$page.props.auth.user.username;
+        }
     }
 }
 </script>

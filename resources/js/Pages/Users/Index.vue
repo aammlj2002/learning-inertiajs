@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import Pagination from '../Shared/Pagination'
+import Pagination from '../../Shared/Pagination.vue'
 import { Link } from "@inertiajs/inertia-vue3"
 import { ref } from '@vue/reactivity'
 import { watch } from '@vue/runtime-core';

@@ -10,7 +10,7 @@ Route::get('/', function () {
     ]);
 });
 Route::get('/users', function () {
-    return inertia('Users', [
+    return inertia('Users/Index', [
         "users"=> User::query()
         ->when(Request::input("search"), function ($query, $search) {
             $query->where("name", "LIKE", "%$search%");
@@ -23,6 +23,9 @@ Route::get('/users', function () {
         ]),
         "filters"=>Request::only('search')
     ]);
+});
+Route::get("/users/create", function () {
+    return inertia("Users/Create");
 });
 Route::get('/settings', function () {
     return inertia('Settings');

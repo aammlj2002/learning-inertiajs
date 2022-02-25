@@ -9,12 +9,8 @@ Route::get('/', function () {
     ]);
 });
 Route::get('/users', function () {
-    sleep(1);
-    return inertia('Users',[
-        "time"=>now()->toTimeString(),
-        "users"=>User::all()->map(fn($user)=>[
-            "user"=> $user->name
-        ])
+    return inertia('Users', [
+        "users"=> User::paginate(10)
     ]);
 });
 Route::get('/settings', function () {

@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
-    <script src="{{ mix('/js/manifest.js') }}" defer></script>
-    <script src="{{ mix('/js/vendor.js') }}" defer></script>
-    <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 
 <body>
     @inertia
+    <script src="{{ mix('/js/manifest.js') }}"></script>
+    <script src="{{ mix('/js/vendor.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 
 </html>

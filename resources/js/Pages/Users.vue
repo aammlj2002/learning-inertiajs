@@ -60,9 +60,9 @@ import { ref } from '@vue/reactivity'
 import { watch } from '@vue/runtime-core';
 import { Inertia } from '@inertiajs/inertia';
 
-defineProps({ users: Object });
-let search = ref('');
+let props = defineProps({ users: Object, filters: Object });
+let search = ref(props.filters.search);
 watch(search, value => {
-    Inertia.get("/users", { search: value }, { preserveState: true })
+    Inertia.get("/users", { search: value }, { preserveState: true, replace: true }, 1000)
 })
 </script>

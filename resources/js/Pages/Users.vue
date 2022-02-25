@@ -59,10 +59,11 @@ import { Link } from "@inertiajs/inertia-vue3"
 import { ref } from '@vue/reactivity'
 import { watch } from '@vue/runtime-core';
 import { Inertia } from '@inertiajs/inertia';
+import debounce from "lodash/debounce";
 
 let props = defineProps({ users: Object, filters: Object });
 let search = ref(props.filters.search);
-watch(search, value => {
-    Inertia.get("/users", { search: value }, { preserveState: true, replace: true }, 1000)
-})
+watch(search, debounce(function (value) {
+    Inertia.get("/users", { search: value }, { preserveState: true, replace: true })
+}, 500))
 </script>

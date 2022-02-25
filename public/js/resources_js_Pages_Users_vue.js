@@ -177,7 +177,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: link.url,
       href: link.url,
       innerHTML: link.label,
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["p-1", link.url ? '' : 'text-gray-500'])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["p-1", {
+        'text-gray-500': !link.url,
+        'font-bold': link.active
+      }])
     }, null, 8
     /* PROPS */
     , ["href", "innerHTML", "class"]);

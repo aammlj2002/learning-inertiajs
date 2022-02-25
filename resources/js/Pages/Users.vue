@@ -2,7 +2,10 @@
     <Head>
         <title>Users</title>
     </Head>
-    <h1>Users</h1>
+    <div class="flex justify-between px-5">
+        <h1>Users</h1>
+        <input v-model="search" type="text" class="px-2 border rounded-lg" placeholder="search..." />
+    </div>
     <div class="p-5">
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -50,14 +53,16 @@
     <Pagination :links="users.links" />
 </template>
 
-<script>
+<script setup>
 import Pagination from '../Shared/Pagination'
 import { Link } from "@inertiajs/inertia-vue3"
+import { ref } from '@vue/reactivity'
+import { watch } from '@vue/runtime-core';
+import { Inertia } from '@inertiajs/inertia';
 
-export default {
-    props: { users: Object },
-    components: {
-        Pagination, Link
-    }
-}
+defineProps({ users: Object });
+let search = ref('');
+watch(search, value => {
+    Inertia.get("/users", { search: value }, { preserveState: true })
+})
 </script>

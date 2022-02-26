@@ -27,6 +27,16 @@ Route::get('/users', function () {
 Route::get("/users/create", function () {
     return inertia("Users/Create");
 });
+Route::post('/users', function () {
+    // validate
+    $validation = Request::validate([
+        "name"=>"required",
+        "email"=>"required",
+        "password"=>"required"
+    ]);
+    User::create($validation);
+    return redirect("/users");
+});
 Route::get('/settings', function () {
     return inertia('Settings');
 });

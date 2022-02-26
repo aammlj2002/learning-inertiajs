@@ -46,33 +46,25 @@
                 <button
                     type="submit"
                     class="px-2 py-4 text-white bg-blue-400 rounded hover:bg-blue-500"
-                    :disabled="processing"
-                    :class="{'bg-gray-500 hover:bg-gray-500': processing}"
+                    :disabled="form.processing"
+                    :class="{'bg-gray-500 hover:bg-gray-500': form.processing}"
                 >Submit</button>
             </div>
         </form>
     </div>
 </template>
 <script setup>
-import { Inertia } from "@inertiajs/inertia";
-import { ref } from "@vue/reactivity";
+import { useForm } from "@inertiajs/inertia-vue3"
 
-defineProps({ errors: Object })
-let form = ref({
+defineProps({ errors: Object });
+let form = useForm({
     name: "",
     email: "",
     password: ""
-})
-let processing = ref(false)
+});
 let submit = () => {
-    Inertia.post("/users", form.value, {
-        onStart: () => {
-            processing.value = true;
-        },
-        onFinish: () => {
-            processing.value = false;
-        }
-    })
+    form.post("/users");
+    form.reset();
 }
 </script>
 <style scoped>

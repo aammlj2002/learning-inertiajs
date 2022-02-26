@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\User;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::middleware('auth')->group(function () {
+Route::get("/login", [LoginController::class, "create"])->name("login");
+
+Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return inertia('Home', [
             "username"=>"John Doe"
@@ -44,4 +47,4 @@ use Illuminate\Support\Facades\Route;
     Route::post('/logout', function () {
         dd(request('foo')." is logout");
     });
-// });
+});

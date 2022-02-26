@@ -270,7 +270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 2:
               page = _context.sent["default"];
 
-              if (!page.layout) {
+              if (page.layout === undefined) {
                 page.layout = _Shared_Layout__WEBPACK_IMPORTED_MODULE_4__["default"];
               }
 
@@ -583,6 +583,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Auth/Login": [
+		"./resources/js/Pages/Auth/Login.vue",
+		"resources_js_Pages_Auth_Login_vue"
+	],
+	"./Auth/Login.vue": [
+		"./resources/js/Pages/Auth/Login.vue",
+		"resources_js_Pages_Auth_Login_vue"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"

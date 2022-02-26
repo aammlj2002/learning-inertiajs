@@ -46,6 +46,8 @@
                 <button
                     type="submit"
                     class="px-2 py-4 text-white bg-blue-400 rounded hover:bg-blue-500"
+                    :disabled="processing"
+                    :class="{'bg-gray-500 hover:bg-gray-500': processing}"
                 >Submit</button>
             </div>
         </form>
@@ -61,7 +63,9 @@ let form = ref({
     email: "",
     password: ""
 })
+let processing = ref(false);
 let submit = () => {
+    processing.value = true;
     Inertia.post("/users", form.value)
 }
 </script>

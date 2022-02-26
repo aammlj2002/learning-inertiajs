@@ -30,12 +30,13 @@
                 <div>
                     <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900">Login</h2>
                 </div>
-                <form class="mt-8 space-y-6" action="#" method="POST">
+                <form class="mt-8 space-y-6" @submit.prevent="submit">
                     <input type="hidden" name="remember" value="true" />
                     <div class="-space-y-px rounded-md shadow-sm">
                         <div>
                             <label for="email-address" class="sr-only">Email address</label>
                             <input
+                                v-model="form.email"
                                 id="email-address"
                                 name="email"
                                 type="email"
@@ -48,6 +49,7 @@
                         <div>
                             <label for="password" class="sr-only">Password</label>
                             <input
+                                v-model="form.password"
                                 id="password"
                                 name="password"
                                 type="password"
@@ -71,10 +73,21 @@
 </template>
 
 <script>
+import { useForm } from '@inertiajs/inertia-vue3'
 export default {
     layout: null,
 }
 </script>
+<script setup>
+let form = useForm({
+    email: "",
+    password: ""
+})
+let submit = () => {
+    form.post("/login")
+}
+</script>
+
 
 <style>
 </style>

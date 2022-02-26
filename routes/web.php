@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/login", [LoginController::class, "create"])->name("login");
+Route::post("/login", [LoginController::class, "store"]);
+Route::post("/logout", [LoginController::class, "destroy"])->name("logout")->middleware("auth");
 
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
@@ -43,8 +45,5 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/settings', function () {
         return inertia('Settings');
-    });
-    Route::post('/logout', function () {
-        dd(request('foo')." is logout");
     });
 });

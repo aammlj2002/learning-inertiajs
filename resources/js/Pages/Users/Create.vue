@@ -63,10 +63,16 @@ let form = ref({
     email: "",
     password: ""
 })
-let processing = ref(false);
+let processing = ref(false)
 let submit = () => {
-    processing.value = true;
-    Inertia.post("/users", form.value)
+    Inertia.post("/users", form.value, {
+        onStart: () => {
+            processing.value = true;
+        },
+        onFinish: () => {
+            processing.value = false;
+        }
+    })
 }
 </script>
 <style scoped>

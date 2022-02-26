@@ -35,7 +35,7 @@ Route::post('/users', function () {
         "password"=>"required"
     ]);
     User::create($validation);
-    // return redirect("/users");
+    return redirect("/users/create");
 });
 Route::get('/settings', function () {
     return inertia('Settings');

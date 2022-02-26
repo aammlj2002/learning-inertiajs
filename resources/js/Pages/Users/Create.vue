@@ -11,8 +11,8 @@
                     class="w-full p-2 border border-gray-400"
                     name="name"
                     id="name"
-                    required
                 />
+                <div v-if="errors.name" class="text-xs text-red-500">{{errors.name}}</div>
             </div>
             <div class="mb-6">
                 <label
@@ -25,8 +25,8 @@
                     class="w-full p-2 border border-gray-400"
                     name="email"
                     id="email"
-                    required
                 />
+                <div v-if="errors.email" class="text-xs text-red-500">{{errors.email}}</div>
             </div>
             <div class="mb-6">
                 <label
@@ -39,8 +39,8 @@
                     class="w-full p-2 border border-gray-400"
                     name="password"
                     id="password"
-                    required
                 />
+                <div v-if="errors.password" class="text-xs text-red-500">{{errors.password}}</div>
             </div>
             <div class="mb-6">
                 <button
@@ -55,6 +55,7 @@
 import { Inertia } from "@inertiajs/inertia";
 import { ref } from "@vue/reactivity";
 
+defineProps({ errors: Object })
 let form = ref({
     name: "",
     email: "",

@@ -3,7 +3,10 @@
         <title>Users</title>
     </Head>
     <div class="flex justify-between px-5">
-        <h1>Users</h1>
+        <div class="flex items-center">
+            <h1>Users</h1>
+            <Link href="/users/create" class="ml-2 text-sm text-blue-500">create user</Link>
+        </div>
         <input v-model="search" type="text" class="px-2 border rounded-lg" placeholder="search..." />
     </div>
     <div class="p-5">

@@ -5,7 +5,11 @@
     <div class="flex justify-between px-5">
         <div class="flex items-center">
             <h1>Users</h1>
-            <Link href="/users/create" class="ml-2 text-sm text-blue-500">create user</Link>
+            <Link
+                v-if="can.createUser"
+                href="/users/create"
+                class="ml-2 text-sm text-blue-500"
+            >create user</Link>
         </div>
         <input v-model="search" type="text" class="px-2 border rounded-lg" placeholder="search..." />
     </div>
@@ -41,6 +45,7 @@
                                         class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
                                     >
                                         <a
+                                            v-if="user.can.edit"
                                             :href="`/users/${user.id}/edit`"
                                             class="text-indigo-600 hover:text-indigo-900"
                                         >Edit</a>
@@ -64,7 +69,7 @@ import { watch } from '@vue/runtime-core';
 import { Inertia } from '@inertiajs/inertia';
 import debounce from "lodash/debounce";
 
-let props = defineProps({ users: Object, filters: Object });
+let props = defineProps({ users: Object, filters: Object, can: Object });
 let search = ref(props.filters.search);
 watch(search, debounce(function (value) {
     Inertia.get("/users", { search: value }, { preserveState: true, replace: true })

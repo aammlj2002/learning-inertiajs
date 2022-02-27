@@ -1,30 +1,6 @@
 <template>
     <Head title="Login" />
     <main>
-        <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-        -->
-        <!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-50">
-  <body class="h-full">
-  ```
-        -->
         <div class="flex items-center justify-center min-h-full px-4 py-12 sm:px-6 lg:px-8">
             <div class="w-full max-w-md space-y-8">
                 <div>

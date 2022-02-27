@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get("/users/create", function () {
         return inertia("Users/Create");
     })->can("create", "App\Models\User");
+
+    
     Route::post('/users', function () {
         // validate
         $validation = Request::validate([
@@ -50,6 +52,8 @@ Route::middleware('auth')->group(function () {
         User::create($validation);
         return redirect("/users/create");
     });
+    Route::get("/users/edit/{user}", [LoginController::class, "edit"]);
+    Route::put("/users/update/{user}", [LoginController::class, "update"]);
     Route::get('/settings', function () {
         return inertia('Settings');
     });
